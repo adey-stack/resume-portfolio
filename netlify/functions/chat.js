@@ -4,7 +4,7 @@
 // backend hosting needed. Runs on Netlify's infrastructure.
 //
 // Requires one environment variable set in Netlify:
-//   GROQ_API_KEY  →  get a free key at https://console.groq.com
+//   OPENAI_API_KEY  →  get a key at https://platform.openai.com/api-keys
 
 const SYSTEM_PROMPT = `You are a friendly AI assistant embedded on Abhishek Kumar's portfolio website.
 Always make clear you are an AI assistant representing Abhishek, not Abhishek himself.
@@ -55,12 +55,12 @@ exports.handler = async function (event) {
     return { statusCode: 405, body: JSON.stringify({ error: "Method not allowed" }) };
   }
 
-  const apiKey = process.env.GROQ_API_KEY;
+  const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
     return {
       statusCode: 500,
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ error: "GROQ_API_KEY is not set in Netlify environment variables." }),
+      body: JSON.stringify({ error: "OPENAI_API_KEY is not set in Netlify environment variables." }),
     };
   }
 
@@ -82,18 +82,18 @@ exports.handler = async function (event) {
     return { statusCode: 400, body: JSON.stringify({ error: "No messages provided" }) };
   }
 
-  const groqMessages = [{ role: "system", content: SYSTEM_PROMPT }, ...trimmed];
+  const openaiMessages = [{ role: "system", content: SYSTEM_PROMPT }, ...trimmed];
 
   try {
-    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + apiKey,
       },
       body: JSON.stringify({
-        model: "llama-3.1-8b-instant",
-        messages: groqMessages,
+        model: "gpt-4o-mini",
+        messages: openaiMessages,
         temperature: 0.6,
         max_tokens: 300,
       }),
@@ -104,7 +104,7 @@ exports.handler = async function (event) {
       return {
         statusCode: 502,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ error: "Groq API error: " + errText.slice(0, 300) }),
+        body: JSON.stringify({ error: "OpenAI API error: " + errText.slice(0, 300) }),
       };
     }
 
