@@ -442,10 +442,10 @@ footer{ padding:44px 0; }
   <div class="nav-inner">
     <a href="#hero" class="logo">AK<span>.</span></a>
     <nav class="nav-links" id="navLinks">
-      <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-actions">
@@ -488,8 +488,9 @@ footer{ padding:44px 0; }
       </div>
     </div>
 
-    <div class="hero-graphic" aria-hidden="true">
+    <div class="hero-graphic" aria-hidden="true" id="heroGraphic">
       <svg viewBox="0 0 300 300">
+        <g id="handTilt">
         <g class="lm-group">
           <!-- connections -->
           <line class="lm-line" x1="150" y1="255" x2="130" y2="228"/>
@@ -542,57 +543,13 @@ footer{ padding:44px 0; }
         </g>
         <text class="cursor-hint" x="234" y="97">← cursor</text>
         <text class="cursor-hint" x="20" y="156">pinch = click →</text>
+        </g>
       </svg>
     </div>
   </div>
 </section>
 
 <!-- ============ ABOUT ============ -->
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="reveal">
-        <p class="eyebrow">ABOUT</p>
-        <h2 class="section-title">Physics background.<br>Backend instincts.</h2>
-        <div class="about-text">
-          <p>I'm a <strong>backend-focused software developer</strong> at Pixel Global, where I design APIs, build data pipelines, and ship AI-powered systems that real businesses depend on — not demos, production.</p>
-          <p>My path started in <strong>physics</strong> before moving into software, which is probably why I still think in systems, signals and feedback loops — whether that's a REST API, a scraping pipeline, or a webcam feed turned into mouse input.</p>
-          <p>Outside client work, I build things I'm curious about — like controlling a full desktop cursor using nothing but hand landmarks from a webcam.</p>
-        </div>
-        <div class="facts">
-          <div><div class="fact-label">Location</div><div class="fact-value">Bokaro, India</div></div>
-          <div><div class="fact-label">Education</div><div class="fact-value">BSc Physics, BBMKU</div></div>
-          <div><div class="fact-label">Focus</div><div class="fact-value">Backend &amp; AI Systems</div></div>
-          <div><div class="fact-label">Status</div><div class="fact-value">Open to opportunities</div></div>
-        </div>
-      </div>
-
-      <div class="code-panel reveal">
-        <div class="code-panel-head">
-          <span class="code-dot" style="background:#e3654f"></span>
-          <span class="code-dot" style="background:#e3a345"></span>
-          <span class="code-dot" style="background:#6fbf73"></span>
-          <span style="font-family:var(--font-mono);font-size:12px;color:var(--text-tertiary);margin-left:6px;">about.py</span>
-        </div>
-        <pre><span class="cm-com"># about.py</span>
-<span class="cm-kw">class</span> <span class="cm-cls">Developer</span>:
-    name = <span class="cm-str">"Abhishek Kumar"</span>
-    location = <span class="cm-str">"Bokaro, India"</span>
-    role = <span class="cm-str">"Backend &amp; AI Systems Developer"</span>
-    stack = [<span class="cm-str">"Python"</span>, <span class="cm-str">"FastAPI"</span>, <span class="cm-str">"MongoDB"</span>]
-    background = <span class="cm-str">"BSc Physics"</span>
-
-    <span class="cm-kw">def</span> <span class="cm-fn">currently_building</span>(<span class="cm-kw">self</span>):
-        <span class="cm-kw">return</span> [
-            <span class="cm-str">"production SEO platform"</span>,
-            <span class="cm-str">"hand-gesture PC control"</span>,
-            <span class="cm-str">"automation pipelines"</span>,
-        ]</pre>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ SKILLS ============ -->
 <section id="skills">
   <div class="container">
@@ -607,33 +564,33 @@ footer{ padding:44px 0; }
         </div>
       </div>
       <div class="skill-card reveal">
-        <h4>Backend</h4>
+        <h4>Backend &amp; APIs</h4>
         <div class="tag-list">
           <span class="tag">[ FastAPI ]</span><span class="tag">[ Flask ]</span><span class="tag">[ Node.js ]</span><span class="tag">[ REST APIs ]</span>
         </div>
       </div>
       <div class="skill-card reveal">
-        <h4>Data &amp; Cloud</h4>
+        <h4>AI &amp; Computer Vision</h4>
         <div class="tag-list">
-          <span class="tag">[ MongoDB ]</span><span class="tag">[ SQL ]</span><span class="tag">[ AWS ]</span><span class="tag">[ Google Maps API ]</span>
+          <span class="tag">[ OpenAI API ]</span><span class="tag">[ MediaPipe ]</span><span class="tag">[ OpenCV ]</span><span class="tag">[ Selenium ]</span>
         </div>
       </div>
       <div class="skill-card reveal">
-        <h4>Automation &amp; AI</h4>
+        <h4>Databases</h4>
         <div class="tag-list">
-          <span class="tag">[ Selenium ]</span><span class="tag">[ OpenAI API ]</span><span class="tag">[ MediaPipe ]</span><span class="tag">[ OpenCV ]</span>
+          <span class="tag">[ MongoDB ]</span><span class="tag">[ SQL ]</span>
         </div>
       </div>
       <div class="skill-card reveal">
-        <h4>Foundations</h4>
+        <h4>Cloud &amp; Deployment</h4>
         <div class="tag-list">
-          <span class="tag">[ DSA · 450+ ]</span><span class="tag">[ DBMS ]</span><span class="tag">[ OS ]</span>
+          <span class="tag">[ AWS ]</span><span class="tag">[ Railway ]</span><span class="tag">[ Netlify ]</span><span class="tag">[ Google Maps API ]</span>
         </div>
       </div>
       <div class="skill-card reveal">
-        <h4>Tools</h4>
+        <h4>Foundations &amp; Tools</h4>
         <div class="tag-list">
-          <span class="tag">[ Git ]</span><span class="tag">[ Postman ]</span><span class="tag">[ VS Code ]</span>
+          <span class="tag">[ DSA · 450+ ]</span><span class="tag">[ DBMS ]</span><span class="tag">[ OS ]</span><span class="tag">[ Git ]</span><span class="tag">[ Postman ]</span>
         </div>
       </div>
     </div>
@@ -769,6 +726,51 @@ footer{ padding:44px 0; }
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="eyebrow">ABOUT</p>
+        <h2 class="section-title">Backend instincts.<br>Real production systems.</h2>
+        <div class="about-text">
+          <p>I'm a <strong>backend-focused software developer</strong> at Pixel Global, where I design APIs, build data pipelines, and ship AI-powered systems that real businesses depend on — not demos, production.</p>
+          <p>I've built systems processing 500+ records per run, APIs serving 100+ paying users, and automation pipelines that cut manual work by ~90%. I care about things working reliably, not just in a demo.</p>
+          <p>Outside client work, I build things I'm curious about — like controlling a full desktop cursor using nothing but hand landmarks from a webcam.</p>
+        </div>
+        <div class="facts">
+          <div><div class="fact-label">Focus</div><div class="fact-value">Backend &amp; AI Systems</div></div>
+          <div><div class="fact-label">Location</div><div class="fact-value">Bokaro, India</div></div>
+          <div><div class="fact-label">Status</div><div class="fact-value">Open to opportunities</div></div>
+          <div><div class="fact-label">Education</div><div class="fact-value">BSc Physics, BBMKU</div></div>
+        </div>
+      </div>
+
+      <div class="code-panel reveal">
+        <div class="code-panel-head">
+          <span class="code-dot" style="background:#e3654f"></span>
+          <span class="code-dot" style="background:#e3a345"></span>
+          <span class="code-dot" style="background:#6fbf73"></span>
+          <span style="font-family:var(--font-mono);font-size:12px;color:var(--text-tertiary);margin-left:6px;">about.py</span>
+        </div>
+        <pre><span class="cm-com"># about.py</span>
+<span class="cm-kw">class</span> <span class="cm-cls">Developer</span>:
+    name = <span class="cm-str">"Abhishek Kumar"</span>
+    location = <span class="cm-str">"Bokaro, India"</span>
+    role = <span class="cm-str">"Backend &amp; AI Systems Developer"</span>
+    stack = [<span class="cm-str">"Python"</span>, <span class="cm-str">"FastAPI"</span>, <span class="cm-str">"MongoDB"</span>]
+
+    <span class="cm-kw">def</span> <span class="cm-fn">currently_building</span>(<span class="cm-kw">self</span>):
+        <span class="cm-kw">return</span> [
+            <span class="cm-str">"production SEO platform"</span>,
+            <span class="cm-str">"hand-gesture PC control"</span>,
+            <span class="cm-str">"automation pipelines"</span>,
+        ]</pre>
+      </div>
     </div>
   </div>
 </section>
@@ -1169,10 +1171,35 @@ function initChat(){
   input.addEventListener("keydown", function(e){ if(e.key === "Enter") send(); });
 }
 
+/* ---------- HERO GRAPHIC MOUSE FOLLOW ---------- */
+function initHeroTilt(){
+  var wrap = document.getElementById("heroGraphic");
+  var tilt = document.getElementById("handTilt");
+  if(!wrap || !tilt) return;
+  if(!window.matchMedia("(pointer:fine)").matches) return;
+  var tx = 0, ty = 0, cx = 0, cy = 0;
+  wrap.addEventListener("mousemove", function(e){
+    var rect = wrap.getBoundingClientRect();
+    var nx = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    var ny = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+    tx = Math.max(-1, Math.min(1, nx)) * 16;
+    ty = Math.max(-1, Math.min(1, ny)) * 12;
+  });
+  wrap.addEventListener("mouseleave", function(){ tx = 0; ty = 0; });
+  function loop(){
+    cx += (tx - cx) * 0.09;
+    cy += (ty - cy) * 0.09;
+    tilt.setAttribute("transform", "translate(" + cx.toFixed(2) + "," + cy.toFixed(2) + ") rotate(" + (cx * 0.35).toFixed(2) + ")");
+    requestAnimationFrame(loop);
+  }
+  loop();
+}
+
 document.addEventListener("DOMContentLoaded", function(){
   safeInit("nav", initNav);
   safeInit("reveal", initReveal);
   safeInit("cursor", initCursor);
+  safeInit("heroTilt", initHeroTilt);
   safeInit("resume", initResume);
   safeInit("modal", initModal);
   safeInit("demo", initDemo);
