@@ -1109,15 +1109,22 @@ function initDemo(){
 
 /* ---------- CONTACT FORM (Netlify Forms via AJAX) ---------- */
 function initContactForm(){
+  var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwX-HoUjRp4ZpW0sMiKcXizQKpLftE3XwPYXb43l5GD8MQ9nDwVOA1kp66qVZCN6DSw/exec";
   var form = document.getElementById("contactForm");
   var status = document.getElementById("formStatus");
   form.addEventListener("submit", function(e){
     e.preventDefault();
-    var data = new FormData(form);
-    fetch("/", {
+    var payload = {
+      name: document.getElementById("cf-name").value,
+      email: document.getElementById("cf-email").value,
+      message: document.getElementById("cf-message").value
+    };
+    status.textContent = "Sending...";
+    status.className = "";
+    fetch(SCRIPT_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(data).toString()
+      body: JSON.stringify(payload)
+      // IMPORTANT: koi Content-Type header mat lagana — CORS preflight fail karega
     }).then(function(){
       status.textContent = "Thanks — message sent. I'll get back to you soon.";
       status.className = "ok";
